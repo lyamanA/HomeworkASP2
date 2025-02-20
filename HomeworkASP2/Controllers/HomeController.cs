@@ -85,7 +85,7 @@ namespace HomeworkASP2.Controllers
         }
 
 
-        //небезопасно,если id передаётся через форму и он доступен в DevTools
+        //РЅРµР±РµР·РѕРїР°СЃРЅРѕ,РµСЃР»Рё id РїРµСЂРµРґР°С‘С‚СЃСЏ С‡РµСЂРµР· С„РѕСЂРјСѓ Рё РѕРЅ РґРѕСЃС‚СѓРїРµРЅ РІ DevTools
         //[HttpPost]
         //public IActionResult EditBook(Book book)
         //{
@@ -100,9 +100,9 @@ namespace HomeworkASP2.Controllers
         public IActionResult EditBook(int id, Book book)
         {
 
-            if (id != book.Id) return BadRequest(); // метод, который возвращает HTTP 400 (Bad Request), указывая, что запрос содержит ошибку.
+            if (id != book.Id) return BadRequest(); // РјРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ РІРѕР·РІСЂР°С‰Р°РµС‚ HTTP 400 (Bad Request), СѓРєР°Р·С‹РІР°СЏ, С‡С‚Рѕ Р·Р°РїСЂРѕСЃ СЃРѕРґРµСЂР¶РёС‚ РѕС€РёР±РєСѓ.
 
-            //для проверки параметров
+            //РґР»СЏ РїСЂРѕРІРµСЂРєРё РїР°СЂР°РјРµС‚СЂРѕРІ
             if (!ModelState.IsValid) return View(book);
 
             _context.Books.Update(book);
