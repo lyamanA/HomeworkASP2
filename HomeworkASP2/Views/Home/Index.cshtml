@@ -1,0 +1,62 @@
+﻿@model List<Book>;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h1>Books</h1>
+<hr />
+
+@* @if (TempData.ContainsKey("Added"))
+{
+    <div class="alert alert-success text-center" role="alert">
+        @TempData["Added"]
+    </div>
+}
+
+@if (TempData.ContainsKey("Fail"))
+{
+    <div class="alert alert-danger text-center" role="alert">
+        @TempData["Fail"]
+    </div>
+}
+
+@if (TempData.ContainsKey("Deleted"))
+{
+    <div class="alert alert-danger text-center" role="alert">
+        @TempData["Deleted"]
+    </div>
+}
+
+@if (TempData.ContainsKey("Updated"))
+{
+    <div class="alert alert-info text-center" role="alert">
+        @TempData["Updated"]
+    </div>
+} *@
+
+@await Html.PartialAsync("_Alert")
+
+@if(Model !=null)
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 my-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" width="200" height="300" style="object-fit:contain" src="@item.ImageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text">@item.Author</p>
+                        <a asp-controller="Home" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                        @* <a href="Home/Details?id=@item.Id" class="btn btn-primary">Details</a> *@
+                        <a class="btn btn-warning" asp-action="EditBook" asp-route-id="@item.Id">Edit</a>
+
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

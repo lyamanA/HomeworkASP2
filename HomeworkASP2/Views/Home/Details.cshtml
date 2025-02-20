@@ -1,0 +1,49 @@
+﻿@model Book;
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<hr />
+
+@if (Model is not null)
+{
+    <div class="card text-center">
+        <div class="card-header">
+            Book Details
+        </div>
+        <div class="card-body">
+            <img height="300" style="object-fit:contain" class="card-img" src="@Model.ImageUrl" alt="Card image cap">
+            <h5 class="card-title">@Model.Title</h5>
+            <p class="card-text">@Model.Author</p>
+            <p class="card-text">@Model.Description</p>
+            <p class="card-text">@Model.Year</p>
+            <p class="card-text">@Model.Publisher</p>
+            <p class="card-text">@Model.Language</p>
+            <p class="card-text">@Model.Genre</p>
+            <p class="card-text">@Model.Pages</p>
+
+            <form method="post" asp-action="DeleteBook" asp-route-id="@Model.Id">
+                <button class="btn btn-danger mb-3" type="submit">Delete this book</button>
+            </form>
+
+            <form method="get" asp-action="EditBook" asp-route-id="@Model.Id">
+                <button class="btn btn-info mb-3" type="submit">Edit this book</button>
+            </form>
+
+        </div>
+        
+    </div>
+
+}
+
+else
+{
+    <div class="alert alert-danger" role="alert">
+        This book doesn't exist!
+        <a href="/">Go back</a>
+    </div>
+}
+

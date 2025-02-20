@@ -1,0 +1,127 @@
+﻿@model Book;
+
+@{
+    ViewData["Title"] = "EditBook";
+}
+
+<h1>Edit Book</h1>
+
+<form method="post" asp-action="EditBook">
+    @* <input type="hidden" asp-for="Id" /> *@
+
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" required />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Author"></label>
+        <input asp-for="Author" class="form-control" required />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Year"></label>
+        <input asp-for="Year" type="number" class="form-control" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageUrl">Image URL</label>
+        <textarea asp-for="ImageUrl" class="form-control" rows="3" ></textarea>
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Publisher"></label>
+        <input asp-for="Publisher" class="form-control" />
+        <span asp-validation-for="Publisher" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Language"></label>
+        <input asp-for="Language" class="form-control" required />
+        <span asp-validation-for="Language" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Genre"></label>
+        <input asp-for="Genre" class="form-control" required />
+        <span asp-validation-for="Genre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Pages"></label>
+        <input asp-for="Pages" type="number" class="form-control" required />
+        <span asp-validation-for="Pages" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+@* <form method="post" asp-action="EditBook">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input name="Title" class="form-control" value="@Model.Title" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Author">Author</label>
+        <input name="Author" class="form-control" value="@Model.Author" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Year">Year</label>
+        <input type="number" name="Year" class="form-control" value="@Model.Year">
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea rows="3" class="form-control" name="Description">@Model.Description</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="ImageUrl">Image URL</label>
+        <input type="text" name="ImageUrl" class="form-control" value="@Model.ImageUrl">
+    </div>
+
+    <div class="form-group">
+        <label for="Publisher">Publisher</label>
+        <input name="Publisher" class="form-control" value="@Model.Publisher">
+    </div>
+
+    <div class="form-group">
+        <label for="Language">Language</label>
+        <input name="Language" class="form-control" value="@Model.Language" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Genre">Genre</label>
+        <input name="Genre" class="form-control" value="@Model.Genre" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Pages">Pages</label>
+        <input type="number" name="Pages" class="form-control" value="@Model.Pages" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+ *@
